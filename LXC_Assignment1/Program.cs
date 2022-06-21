@@ -48,10 +48,31 @@ void Multiplication()
 
     int sum = first * second;
 
-    Console.Write("The sum of the entered integers are " + sum);
+    Console.Write("The faction of the entered integers are " + sum);
 }
 
 // The method below allows the user to enter two different integers and sum them. 
 void Division() 
-{ 
+{
+    Console.Write("Enter first int: ");
+
+    int first = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write("Enter second int: ");
+
+    int second = Convert.ToInt32(Console.ReadLine());
+
+    if(second != 0)
+    {
+        int sum = first / second;
+        Console.Write("The faction of the entered integers are " + sum);
+    }
+    else
+    {
+        Console.WriteLine("The second int must not be 0. Try again.");
+    }
+   
+    
+
+
 }
