@@ -1,21 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+// Declaration of first and second variables so they can be assigned throughout the program. 
 
+double first, second;
 
 // Use the menu method.
-    Menu();
+Menu();
 
 
 // The method below allows the user to enter two different integers and receive the sum of them. 
 void Addition()
 {
-    Console.Write("Enter first int: ");
-
-    double first = Convert.ToDouble(Console.ReadLine());
-
-    Console.Write("Enter second int: ");
-
-    double second = Convert.ToDouble(Console.ReadLine());
+    AskForInput(out first, out second);
 
     double sum = first + second;
 
@@ -26,13 +22,7 @@ void Addition()
 // The method below allows the user to recieve the difference of two inputted integers.
 void Subtraction()
 {
-    Console.Write("Enter first int: ");
-
-    double first = Convert.ToDouble(Console.ReadLine());
-
-    Console.Write("Enter second int: ");
-
-    double second = Convert.ToDouble(Console.ReadLine());
+    AskForInput(out first, out second);
 
     double difference = first - second;
 
@@ -44,13 +34,7 @@ void Subtraction()
 // The method below allows the user receive the product of two inputted integers. 
 void Multiplication() 
 {
-    Console.Write("Enter first int: ");
-
-    double first = Convert.ToDouble(Console.ReadLine());
-
-    Console.Write("Enter second int: ");
-
-    double second = Convert.ToDouble(Console.ReadLine());
+    AskForInput(out first, out second);
 
     double product = first * second;
 
@@ -62,13 +46,7 @@ void Multiplication()
 // The method below allows the user to receive the fraction of the numerator and the denomirator. 
 void Division() 
 {
-    Console.Write("Enter numerator: ");
-
-    double first = Convert.ToDouble(Console.ReadLine());
-
-    Console.Write("Enter denomirator: ");
-
-    double second = Convert.ToDouble(Console.ReadLine());
+    AskForInput(out first, out second);
 
     if (second != 0)
     {
@@ -147,5 +125,18 @@ bool Continue()
     Menu();
 
     return true;
+
+}
+
+// Handles inputs from the user. 
+void AskForInput(out double first, out double second)
+{
+    Console.Write("Enter first int: ");
+
+    first = Convert.ToDouble(Console.ReadLine());
+
+    Console.Write("Enter second int: ");
+
+    second = Convert.ToDouble(Console.ReadLine());
 }
 
