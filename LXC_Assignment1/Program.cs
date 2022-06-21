@@ -68,7 +68,7 @@ void Division()
     if (second != 0)
     {
         double sum = first / second;
-        Console.WriteLine("The faction of the entered integers are " + sum);
+        Console.WriteLine("The fraction of the entered integers are " + sum);
     }
     else
     {
@@ -85,10 +85,10 @@ void Menu()
     // General info 
         Console.WriteLine
             ("Welcome to the calculator menu!" + "\n" +
-            "Press 1 to add." + "\n" +
-            "Press 2 to subtract" + "\n" +
-            "Press 3 to multiply." + "\n" +
-            "Press 4 to divide");
+            "Press 1 to calculate the sum of two integers." + "\n" +
+            "Press 2 to calculate the difference of two integers." + "\n" +
+            "Press 3 to calculate the product of two integers." + "\n" +
+            "Press 4 to calculate the fraction of the numerator and the denomirator.");
 
     
         int numPressed = Convert.ToInt32(Console.ReadLine());
