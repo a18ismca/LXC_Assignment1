@@ -9,7 +9,7 @@ namespace LXC_Assignment1
 
         static List<int> array = new List<int>();
 
-        Program()
+        public Program()
         {
             
         }
@@ -26,61 +26,62 @@ namespace LXC_Assignment1
 
 
         // The method below allows the user to enter two different integers and receive the sum of them. 
-        static void Addition()
+        public static double Addition(double first, double second)
         {
-            AskForInput(out first, out second);
 
             double sum = first + second;
 
             Console.WriteLine(first + " + " + second + " = " + sum);
-            Continue();
+            
+
+            return sum;
         }
 
         // The method below allows the user to recieve the difference of two inputted integers.
-        static void Subtraction()
+        public static double Subtraction(double first, double second)
         {
-            AskForInput(out first, out second);
 
             double difference = first - second;
 
             Console.WriteLine(first + " - " + second + " = " + difference);
 
-            Continue();
+            return difference;
+
         }
 
         // The method below allows the user receive the product of two inputted integers. 
-        static void Multiplication()
+        public static double Multiplication(double first, double second)
         {
-            AskForInput(out first, out second);
 
             double product = first * second;
 
             Console.WriteLine(first + " * " + second + " = " + product);
 
-            Continue();
+            return product;
         }
 
         // The method below allows the user to receive the fraction of the numerator and the denomirator. 
-        static void Division()
+        public static double Division(double first, double second)
         {
-            AskForInput(out first, out second);
 
+            double fraction = first / second;
             if (second != 0)
             {
-                double fraction = first / second;
+                fraction = first / second;
                 Console.WriteLine(first + " / " + second + " = " + fraction);
             }
             else
             {
                 Console.WriteLine("The second int must not be 0. Try again.");
-                Division();
+                
             }
-
-            Continue();
+            return fraction;
         }
 
+
+
         // The menu. 
-        static void Menu()
+        public static void Menu()
         {
 
             // General info 
@@ -104,26 +105,50 @@ namespace LXC_Assignment1
             switch (numPressed)
             {
                 case 1:
-                    Addition();
+
+                    AskForInput(out first, out second);
+                    Addition(first, second);
+                    Continue();
                     break;
+
                 case 2:
-                    Subtraction();
+
+                    AskForInput(out first, out second);
+                    Subtraction(first, second);
+                    Continue();
                     break;
+
                 case 3:
-                    Multiplication();
+
+                    AskForInput(out first, out second);
+                    Multiplication(first, second);
+                    Continue();
                     break;
+
                 case 4:
-                    Division();
+
+                    AskForInput(out first, out second);
+                    Division(first, second);
+                    Continue();
                     break;
+
                 case 5:
+                    AskForSeveralInputs(array);
                     Addition(array);
+                    Continue();
                     break;
+
                 case 6:
+                    AskForSeveralInputs(array);
                     Subtraction(array);
+                    Continue();
                     break;
+
                 case 7:
+
                     Environment.Exit(0);
                     break;
+
                 default:
                     Console.WriteLine("The number entered does not contain anything");
                     break;
@@ -134,7 +159,7 @@ namespace LXC_Assignment1
         }
 
         // Decide whether the user wants to return to the menu or quit.
-        static bool Continue()
+        public static bool Continue()
         {
             Console.WriteLine("Press any key to return to the menu. Press Q to quit.");
 
@@ -155,23 +180,28 @@ namespace LXC_Assignment1
         }
 
         // Handles inputs from the user. 
-        static void AskForInput(out double first, out double second)
+        public static void AskForInput(out double first, out double second)
         {
-            Console.Write("Enter first int: ");
 
-            first = Convert.ToDouble(Console.ReadLine());
+                
+                Console.Write("Enter first int: ");
 
-            Console.Write("Enter second int: ");
+                first = Convert.ToDouble(Console.ReadLine());
 
-            second = Convert.ToDouble(Console.ReadLine());
+            
+
+                Console.Write("Enter second int: ");
+
+                second = Convert.ToDouble(Console.ReadLine());
+           
         }
 
 
         // The overloaded method below allows the user to enter a number different integers and receive the sum of them. 
-        static void Addition(List<int> arr)
+        public static int Addition(List<int> arr)
         {
             Console.WriteLine("--- Array addition ---");
-            AskForSeveralInputs(arr);
+            
 
             int sum = arr[0];
 
@@ -185,19 +215,20 @@ namespace LXC_Assignment1
 
             }
 
+            
             Console.WriteLine("= " + sum);
 
-            arr.Clear();
+            return sum;
 
-            Continue();
+
         }
 
         // The overloaded method below allows the user to recieve the difference of the inputted integers.
-        static void Subtraction(List<int> arr)
+        public static int Subtraction(List<int> arr)
         {
             Console.WriteLine("--- Array subtraction ---");
 
-            AskForSeveralInputs(arr);
+            
 
             // Receive the 
             int difference = arr[0];
@@ -215,17 +246,19 @@ namespace LXC_Assignment1
 
             }
 
+            
+
             Console.WriteLine("= " + difference);
+            return difference;
+            //arr.Clear();
 
-            arr.Clear();
 
-            Continue();
 
         }
 
         // The console asks the user for a input of number of integers
-        static void AskForSeveralInputs(List<int> arr) {
-
+        public static List<int> AskForSeveralInputs(List<int> arr) {
+            
             Console.Write("Enter a number with ints. Separate the ints with a ','.\nThe recently selected operation occurs when entering a second int.\nInputted numbers: ");
 
             string input = Console.ReadLine();
@@ -236,6 +269,8 @@ namespace LXC_Assignment1
             {
                 arr.Add(int.Parse(split[i]));
             }
+
+            return arr;
         }
         
     }
